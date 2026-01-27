@@ -29,10 +29,27 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        hero: {
+          DEFAULT: "hsl(var(--hero))",
+          foreground: "hsl(var(--hero-foreground))",
+        },
+        manifesto: {
+          DEFAULT: "hsl(var(--manifesto))",
+          foreground: "hsl(var(--manifesto-foreground))",
+        },
+        "about-green": {
+          DEFAULT: "hsl(var(--about-green))",
+          foreground: "hsl(var(--about-green-foreground))",
+        },
+        "about-pink": {
+          DEFAULT: "hsl(var(--about-pink))",
+          foreground: "hsl(var(--about-pink-foreground))",
+        },
         lime: {
           DEFAULT: "hsl(var(--lime))",
           foreground: "hsl(var(--lime-foreground))",
         },
+        purple: "hsl(var(--purple))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -118,6 +135,10 @@ export default {
           "0%, 100%": { transform: "rotate(-3deg)" },
           "50%": { transform: "rotate(3deg)" },
         },
+        spin: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -130,6 +151,7 @@ export default {
         marquee: "marquee 20s linear infinite",
         float: "float 3s ease-in-out infinite",
         wiggle: "wiggle 0.5s ease-in-out infinite",
+        "spin-slow": "spin 20s linear infinite",
       },
     },
   },
