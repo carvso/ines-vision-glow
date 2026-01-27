@@ -2,38 +2,33 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Briefcase, GraduationCap } from "lucide-react";
+import { StarDecoration, SparkleDecoration } from "./decorations/StarDecoration";
 
 const experiences = [
   {
-    role: "Creative Strategist",
-    company: "Agency Name",
-    period: "2023 - Present",
-    description: "Leading brand strategy initiatives for Fortune 500 clients. Developing consumer insights and creative platforms."
+    role: "Departamento de Estrategia",
+    company: "Padre",
+    period: "2025 - 2026",
+    description: "Subaru, La Salve, InPost, Ecoembes, Ultima"
   },
   {
-    role: "Junior Strategist",
-    company: "Creative Studio",
-    period: "2021 - 2023",
-    description: "Conducted market research, competitive analysis, and contributed to pitch decks for new business."
-  },
-  {
-    role: "Strategy Intern",
-    company: "Digital Agency",
-    period: "2020 - 2021",
-    description: "Supported senior strategists in developing social media strategies and content calendars."
+    role: "Departamento de Estrategia",
+    company: "TBWA",
+    period: "2025",
+    description: "Focus on Disruption. Clients: Apple, McDonald's, Plenitude"
   }
 ];
 
 const education = [
   {
-    degree: "Master in Strategic Communication",
-    institution: "Universidad de Barcelona",
-    year: "2020"
+    degree: "Máster en Estrategia",
+    institution: "Miami Ad School Madrid",
+    year: "2023 - 2024"
   },
   {
-    degree: "Bachelor in Advertising",
-    institution: "Universidad Complutense",
-    year: "2018"
+    degree: "Grado en Publicidad y RRPP",
+    institution: "Universidad de Valladolid",
+    year: "2019 - 2023"
   }
 ];
 
@@ -42,7 +37,18 @@ const TimelineSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section className="py-24 md:py-32 bg-secondary">
+    <section className="py-24 md:py-32 bg-background relative overflow-hidden">
+      {/* Decorations */}
+      <StarDecoration 
+        className="absolute top-20 right-12 md:right-32 text-foreground" 
+        size={40} 
+        filled 
+      />
+      <SparkleDecoration 
+        className="absolute bottom-32 left-12 md:left-24 text-foreground" 
+        size={30} 
+      />
+
       <div ref={ref} className="max-w-6xl mx-auto px-6 md:px-12">
         {/* Experience Header */}
         <motion.div
@@ -52,36 +58,26 @@ const TimelineSection = () => {
           className="mb-16"
         >
           <div className="flex items-center gap-4 mb-4">
-            <Briefcase className="w-8 h-8 text-lime" />
+            <Briefcase className="w-8 h-8 text-manifesto" />
             <h2 className="font-display text-5xl md:text-7xl font-bold">EXPERIENCIA</h2>
           </div>
-          <div className="w-32 h-1 bg-lime" />
+          <div className="w-32 h-1 bg-manifesto" />
         </motion.div>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-1/2" />
-
+        {/* Experience Cards */}
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-20">
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className={`relative pl-8 md:pl-0 pb-12 md:pb-16 ${
-                index % 2 === 0 ? "md:pr-[calc(50%+2rem)] md:text-right" : "md:pl-[calc(50%+2rem)]"
-              }`}
+              className="bg-card p-8 brutal-border hover-lift"
             >
-              {/* Dot */}
-              <div className={`absolute w-4 h-4 bg-lime rounded-none top-2 left-0 md:left-1/2 md:-translate-x-1/2 brutal-border`} />
-              
-              <div className="bg-card p-6 md:p-8 brutal-border hover-lift">
-                <span className="text-sm font-body tracking-widest text-lime">{exp.period}</span>
-                <h3 className="font-display text-2xl md:text-3xl font-bold mt-2">{exp.role}</h3>
-                <p className="font-body text-lg text-muted-foreground mt-1">{exp.company}</p>
-                <p className="font-body text-muted-foreground mt-4 leading-relaxed">{exp.description}</p>
-              </div>
+              <span className="text-sm font-body tracking-widest text-manifesto font-semibold">{exp.period}</span>
+              <h3 className="font-display text-2xl md:text-3xl font-bold mt-3">{exp.company}</h3>
+              <p className="font-body text-lg text-muted-foreground mt-1">{exp.role}</p>
+              <p className="font-body text-muted-foreground mt-4 leading-relaxed">{exp.description}</p>
             </motion.div>
           ))}
         </div>
@@ -90,14 +86,14 @@ const TimelineSection = () => {
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mb-12 mt-16"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mb-12"
         >
           <div className="flex items-center gap-4 mb-4">
-            <GraduationCap className="w-8 h-8 text-lime" />
+            <GraduationCap className="w-8 h-8 text-hero" />
             <h2 className="font-display text-5xl md:text-7xl font-bold">FORMACIÓN</h2>
           </div>
-          <div className="w-32 h-1 bg-lime" />
+          <div className="w-32 h-1 bg-hero" />
         </motion.div>
 
         {/* Education Grid */}
@@ -107,11 +103,11 @@ const TimelineSection = () => {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-              className="bg-card p-6 md:p-8 brutal-border hover-lift"
+              transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+              className="bg-card p-8 brutal-border hover-lift"
             >
-              <span className="text-sm font-body tracking-widest text-lime">{edu.year}</span>
-              <h3 className="font-display text-xl md:text-2xl font-bold mt-2">{edu.degree}</h3>
+              <span className="text-sm font-body tracking-widest text-hero font-semibold">{edu.year}</span>
+              <h3 className="font-display text-xl md:text-2xl font-bold mt-3">{edu.degree}</h3>
               <p className="font-body text-muted-foreground mt-1">{edu.institution}</p>
             </motion.div>
           ))}

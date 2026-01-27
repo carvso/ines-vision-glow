@@ -1,6 +1,7 @@
 import { motion, Variants } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { StarDecoration, SparkleDecoration, SmileyDecoration } from "./decorations/StarDecoration";
 
 const IntroSection = () => {
   const ref = useRef(null);
@@ -27,67 +28,85 @@ const IntroSection = () => {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-background border-t border-border">
-      <motion.div
-        ref={ref}
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        className="max-w-7xl mx-auto px-6 md:px-12"
-      >
-        <div className="grid md:grid-cols-2 gap-12 md:gap-24">
-          {/* Column 1 */}
-          <motion.div variants={itemVariants} className="space-y-6">
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-              ¿POR QUE ESTOY
-              <br />
-              <span className="text-lime">AQUI HOY?</span>
-            </h2>
-            <div className="w-16 h-1 bg-foreground" />
-            <p className="font-body text-lg md:text-xl text-muted-foreground leading-relaxed">
-              La estrategia creativa es el puente entre la visión y la ejecución. 
-              Me apasiona descubrir insights que transforman marcas y conectan 
-              con las audiencias de manera auténtica y memorable.
-            </p>
-            <p className="font-body text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Creo en el poder de las historias bien contadas, en la investigación 
-              profunda y en la creatividad con propósito.
-            </p>
-          </motion.div>
+    <>
+      {/* First About Section - Light Green */}
+      <section className="py-24 md:py-32 bg-about-green relative overflow-hidden">
+        {/* Decorations */}
+        <StarDecoration 
+          className="absolute top-12 right-12 md:right-24 text-about-green-foreground" 
+          size={40} 
+          filled 
+        />
+        <SparkleDecoration 
+          className="absolute bottom-16 left-12 md:left-24 text-about-green-foreground" 
+          size={30} 
+        />
+        <SmileyDecoration 
+          className="absolute top-1/2 right-8 md:right-16 text-about-green-foreground hidden md:block" 
+          size={50} 
+        />
 
-          {/* Column 2 */}
-          <motion.div variants={itemVariants} className="space-y-6">
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-              QUE ES LA
-              <br />
-              <span className="text-lime">ESTRATEGIA</span>
-              <br />
-              PARA MI?
-            </h2>
-            <div className="w-16 h-1 bg-foreground" />
-            <p className="font-body text-lg md:text-xl text-muted-foreground leading-relaxed">
-              La estrategia es encontrar la verdad escondida. Es convertir datos 
-              en dirección, convertir problemas en oportunidades y convertir 
-              ideas en impacto real.
-            </p>
-            <p className="font-body text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Es el arte de hacer las preguntas correctas antes de buscar las 
-              respuestas. Es pensar diferente para actuar mejor.
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Decorative quote */}
-        <motion.div 
-          variants={itemVariants}
-          className="mt-24 text-center"
+        <motion.div
+          ref={ref}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="max-w-5xl mx-auto px-6 md:px-12"
         >
-          <blockquote className="font-script text-4xl md:text-6xl text-muted-foreground">
-            "Strategy is about choices"
-          </blockquote>
+          <motion.div variants={itemVariants} className="space-y-8">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-about-green-foreground">
+              ¿POR QUÉ ESTOY
+              <br />
+              AQUÍ HOY?
+            </h2>
+            <div className="w-24 h-1 bg-foreground" />
+            <p className="font-body text-xl md:text-2xl text-about-green-foreground/90 leading-relaxed max-w-3xl">
+              Creo firmemente en que tenemos que guiarnos por lo que nos mueve y en mi caso ha sido il perseguir 'el por qué' de las cosas... todo es cuestión de enfoque.
+            </p>
+          </motion.div>
         </motion.div>
-      </motion.div>
-    </section>
+      </section>
+
+      {/* Second About Section - Soft Pink */}
+      <section className="py-24 md:py-32 bg-about-pink relative overflow-hidden">
+        {/* Decorations */}
+        <StarDecoration 
+          className="absolute top-16 left-12 md:left-24 text-about-pink-foreground" 
+          size={35} 
+        />
+        <SparkleDecoration 
+          className="absolute bottom-20 right-16 md:right-32 text-about-pink-foreground" 
+          size={28} 
+        />
+        <StarDecoration 
+          className="absolute top-1/3 right-8 md:right-20 text-about-pink-foreground hidden md:block" 
+          size={45} 
+          filled 
+        />
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="max-w-5xl mx-auto px-6 md:px-12"
+        >
+          <motion.div variants={itemVariants} className="space-y-8">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-about-pink-foreground">
+              ¿QUÉ ES LA
+              <br />
+              ESTRATEGIA
+              <br />
+              PARA MÍ?
+            </h2>
+            <div className="w-24 h-1 bg-foreground" />
+            <p className="font-body text-xl md:text-2xl text-about-pink-foreground/90 leading-relaxed max-w-3xl">
+              Para mí la estrategia es investigación, observación, decisión e inspiración... la curiosidad del día a día che nos ayuda a descubrir esos insights.
+            </p>
+          </motion.div>
+        </motion.div>
+      </section>
+    </>
   );
 };
 
