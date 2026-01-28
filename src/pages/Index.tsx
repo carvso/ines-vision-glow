@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import HeroSection from "@/components/HeroSection";
+import TransitionMarquee from "@/components/TransitionMarquee";
 import ManifestoSection from "@/components/ManifestoSection";
 import IntroSection from "@/components/IntroSection";
 import TimelineSection from "@/components/TimelineSection";
@@ -15,6 +16,7 @@ const Index = () => {
       className="overflow-x-hidden"
     >
       <HeroSection />
+      <TransitionMarquee />
       <ManifestoSection />
       <IntroSection />
       <TimelineSection />

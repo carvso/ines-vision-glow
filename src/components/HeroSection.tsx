@@ -3,7 +3,7 @@ import { StarDecoration, SparkleDecoration, SmileyDecoration } from "./decoratio
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-hero py-16">
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-hero py-12">
       {/* Decorative elements */}
       <StarDecoration 
         className="absolute top-12 left-8 md:top-16 md:left-20 text-foreground" 

@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Briefcase, GraduationCap, ExternalLink } from "lucide-react";
+import { Briefcase, GraduationCap } from "lucide-react";
 import { StarDecoration, SparkleDecoration } from "./decorations/StarDecoration";
+import miamiAdSchoolLogo from "@/assets/miami-ad-school.webp";
+import universidadValladolidLogo from "@/assets/universidad-valladolid.png";
 
 const experiences = [
   {
@@ -26,13 +28,13 @@ const education = [
     degree: "Máster en Estrategia",
     institution: "Miami Ad School Madrid",
     year: "2023 - 2024",
-    logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=80&h=80&fit=crop"
+    logo: miamiAdSchoolLogo
   },
   {
     degree: "Grado en Publicidad y RRPP",
     institution: "Universidad de Valladolid",
     year: "2019 - 2023",
-    logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=80&h=80&fit=crop"
+    logo: universidadValladolidLogo
   }
 ];
 
@@ -123,10 +125,14 @@ const TimelineSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-              className="bg-card p-6 brutal-border hover-lift flex gap-4"
+              className="bg-card p-6 brutal-border hover-lift flex items-center gap-5"
             >
-              <div className="w-14 h-14 flex-shrink-0 brutal-border overflow-hidden bg-secondary">
-                <img src={edu.logo} alt={edu.institution} className="w-full h-full object-cover" />
+              <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0 bg-white brutal-border overflow-hidden flex items-center justify-center p-2">
+                <img 
+                  src={edu.logo} 
+                  alt={edu.institution} 
+                  className="w-full h-full object-contain" 
+                />
               </div>
               <div className="flex-1">
                 <span className="text-xs font-body tracking-widest text-hero font-semibold">{edu.year}</span>
