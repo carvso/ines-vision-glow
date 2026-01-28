@@ -10,35 +10,31 @@ const ManifestoSection = () => {
     offset: ["start end", "end start"]
   });
 
-  const opacity1 = useTransform(scrollYProgress, [0, 0.2, 0.3], [0, 1, 1]);
-  const y1 = useTransform(scrollYProgress, [0, 0.2], [100, 0]);
+  const opacity1 = useTransform(scrollYProgress, [0, 0.15, 0.25], [0, 1, 1]);
+  const y1 = useTransform(scrollYProgress, [0, 0.15], [60, 0]);
   
-  const opacity2 = useTransform(scrollYProgress, [0.3, 0.5, 0.6], [0, 1, 1]);
-  const y2 = useTransform(scrollYProgress, [0.3, 0.5], [100, 0]);
+  const opacity2 = useTransform(scrollYProgress, [0.25, 0.4, 0.5], [0, 1, 1]);
+  const y2 = useTransform(scrollYProgress, [0.25, 0.4], [60, 0]);
 
   return (
     <section 
       ref={containerRef}
-      className="min-h-[200vh] relative bg-manifesto"
+      className="min-h-[120vh] relative bg-manifesto"
     >
       {/* Decorative elements */}
-      <div className="sticky top-0 h-screen">
+      <div className="sticky top-0 h-screen pointer-events-none">
         <StarDecoration 
-          className="absolute top-20 left-10 md:left-20 text-manifesto-foreground" 
-          size={45} 
+          className="absolute top-16 left-8 md:left-16 text-manifesto-foreground" 
+          size={35} 
           filled 
         />
         <SparkleDecoration 
-          className="absolute top-32 right-16 md:right-32 text-manifesto-foreground" 
-          size={35} 
+          className="absolute top-24 right-12 md:right-24 text-manifesto-foreground" 
+          size={28} 
         />
         <StarDecoration 
-          className="absolute bottom-32 right-10 md:right-24 text-manifesto-foreground" 
-          size={40} 
-        />
-        <SparkleDecoration 
-          className="absolute bottom-40 left-20 md:left-40 text-manifesto-foreground" 
-          size={28} 
+          className="absolute bottom-24 right-8 md:right-20 text-manifesto-foreground" 
+          size={32} 
         />
       </div>
 
@@ -46,7 +42,7 @@ const ManifestoSection = () => {
         {/* Quote 1 */}
         <motion.p 
           style={{ opacity: opacity1, y: y1 }}
-          className="font-display text-2xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-center leading-tight max-w-5xl text-manifesto-foreground"
+          className="font-display text-xl md:text-3xl lg:text-5xl xl:text-6xl font-bold text-center leading-tight max-w-4xl text-manifesto-foreground"
         >
           "Creative without strategy is called{" "}
           <span className="italic">art.</span>"
@@ -55,10 +51,10 @@ const ManifestoSection = () => {
         {/* Quote 2 */}
         <motion.p 
           style={{ opacity: opacity2, y: y2 }}
-          className="font-display text-2xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-center leading-tight max-w-5xl mt-8 md:mt-12 text-manifesto-foreground"
+          className="font-display text-xl md:text-3xl lg:text-5xl xl:text-6xl font-bold text-center leading-tight max-w-4xl mt-6 md:mt-8 text-manifesto-foreground"
         >
           "Creative with strategy is called{" "}
-          <span className="bg-lime text-lime-foreground px-4 py-1 inline-block transform -rotate-1">
+          <span className="bg-lime text-lime-foreground px-3 py-1 inline-block transform -rotate-1">
             advertising
           </span>"
         </motion.p>
@@ -66,9 +62,9 @@ const ManifestoSection = () => {
         {/* Attribution */}
         <motion.div
           style={{ opacity: opacity2 }}
-          className="mt-12"
+          className="mt-8"
         >
-          <span className="font-script text-2xl md:text-4xl text-manifesto-foreground/70">— Leo Burnett</span>
+          <span className="font-script text-xl md:text-3xl text-manifesto-foreground/70">— Leo Burnett</span>
         </motion.div>
       </div>
     </section>
