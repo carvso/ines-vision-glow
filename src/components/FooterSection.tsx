@@ -65,7 +65,7 @@ const FooterSection = () => {
           </a>
           
           <a 
-            href="https://linkedin.com/in/inesgimenovella"
+            href="https://www.linkedin.com/in/ign13/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 font-body text-lg text-lime-foreground hover:underline underline-offset-4 transition-all group"
