@@ -46,8 +46,11 @@ export const SparkleDecoration = ({ className = "", size = 24, animate = true }:
     return (
       <motion.div 
         className={className}
-        animate={{ scale: [1, 1.2, 1] }}
-        transition={{ duration: 2, repeat: Infinity }}
+        animate={{ rotate: 360, scale: [1, 1.1, 1] }}
+        transition={{ 
+          rotate: { duration: 15, repeat: Infinity, ease: "linear" },
+          scale: { duration: 3, repeat: Infinity }
+        }}
       >
         <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -75,8 +78,11 @@ export const SmileyDecoration = ({ className = "", size = 80 }: { className?: st
   return (
     <motion.div
       className={className}
-      animate={{ y: [-5, 5, -5] }}
-      transition={{ duration: 2, repeat: Infinity }}
+      animate={{ rotate: 360, y: [-5, 5, -5] }}
+      transition={{ 
+        rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+        y: { duration: 2, repeat: Infinity }
+      }}
     >
       <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="40" cy="40" r="38" stroke="currentColor" strokeWidth="3" fill="hsl(270, 60%, 50%)"/>
